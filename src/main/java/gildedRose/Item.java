@@ -72,4 +72,11 @@ public class Item {
         return quality < 50;
     }
 
+    protected int increase1ItemQualty(Item item) {
+        return item.quality+1;
+    }
+    protected int decrease1ItemQualty(Item item) {
+        return item.quality-1;
+    }
+
 }
