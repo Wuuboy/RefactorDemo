@@ -1,4 +1,5 @@
 package gildedRose;
+
 public class GildedRose {
     Item[] items;
 
@@ -12,12 +13,14 @@ public class GildedRose {
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items[i].quality > 0) {
                     if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                        items[i].quality = items[i].quality - 1;
+//                        items[i].quality = items[i].quality - 1;
+                        items[i].quality = decrease1Quality(items[i].quality);
                     }
                 }
             } else {
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
+//                    items[i].quality = increase1Quality(items[i].quality);
 
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].sellIn < 11) {
@@ -44,11 +47,13 @@ public class GildedRose {
                     if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].quality > 0) {
                             if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
-                                items[i].quality = items[i].quality - 1;
+//                                items[i].quality = items[i].quality - 1;
+                                items[i].quality = decrease1Quality(items[i].quality);
                             }
                         }
                     } else {
-                        items[i].quality = items[i].quality - items[i].quality;
+//                        items[i].quality = items[i].quality - items[i].quality;
+                        items[i].quality = decrease1Quality(items[i].quality);
                     }
                 } else {
                     if (items[i].quality < 50) {
@@ -57,5 +62,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private int decrease1Quality(int itemQuality) {
+        itemQuality = itemQuality - 1;
+        return itemQuality;
     }
 }
