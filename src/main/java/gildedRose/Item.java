@@ -8,6 +8,18 @@ public class Item {
 
     public int quality;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
