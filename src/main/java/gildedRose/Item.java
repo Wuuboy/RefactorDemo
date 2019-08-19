@@ -26,23 +26,24 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
-        if (this.name == "Aged Brie"){
-            this.updateItem =new AgedBrieUpdateItem();
-        }else if (this.name == "Backstage passes to a TAFKAL80ETC concert"){
-            this.updateItem =new BackstageUpdateItem();
-        }else if (this.name == "Sulfuras, Hand of Ragnaros"){
-            this.updateItem =new SulfurasUpdateItem();
-        }else {
+        if (this.name == "Aged Brie") {
+            this.updateItem = new AgedBrieUpdateItem();
+        } else if (this.name == "Backstage passes to a TAFKAL80ETC concert") {
+            this.updateItem = new BackstageUpdateItem();
+        } else if (this.name == "Sulfuras, Hand of Ragnaros") {
+            this.updateItem = new SulfurasUpdateItem();
+        } else {
             this.updateItem = new OtherUpdateItem();
         }
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
     protected int decrease1ItemSellIn(int sellIn) {
-        return sellIn - 1;
+        return sellIn-1;
     }
 
     protected boolean isItemSellInSmallerThan11(int sellIn) {
