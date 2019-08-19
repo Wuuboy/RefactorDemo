@@ -40,7 +40,7 @@ public class GildedRose {
                 items[i].sellIn = items[i].sellIn - 1;
             }
 
-            if (items[i].sellIn < 0) {
+            if (isItemSellInSmallerThan0(items[i].sellIn, 0)) {
                 if (!items[i].name.equals("Aged Brie")) {
                     if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (isItemQualityBiggerThan0(items[i])) {
@@ -58,6 +58,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isItemSellInSmallerThan0(int sellIn, int i2) {
+        return sellIn < i2;
     }
 
     private boolean isItemQualityBiggerThan0(Item item) {
