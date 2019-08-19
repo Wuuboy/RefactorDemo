@@ -44,4 +44,12 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
         Assert.assertEquals(0,items[0].getSellIn());
     }
+
+    @Test
+    public void should_return_quality_is_2_when_sellIn_smaller_than_0_item_name_equals_AgedBrie_and_quality_smaller_than_50() {
+        Item[] items = {new Item("Aged Brie",1,1)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(2,items[0].getQuality());
+    }
 }
