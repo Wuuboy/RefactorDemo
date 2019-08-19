@@ -21,7 +21,7 @@ public class GildedRose {
                     increaseItemQuality(i);
 
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].sellIn < 11) {
+                        if (isItemSellInSmallerThan11(items[i].sellIn, 11)) {
                             if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
                                 increaseItemQuality(i);
                             }
@@ -58,6 +58,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isItemSellInSmallerThan11(int sellIn, int i2) {
+        return sellIn < i2;
     }
 
     private boolean isItemSellInSmallerThan6(int sellIn, int i2) {
