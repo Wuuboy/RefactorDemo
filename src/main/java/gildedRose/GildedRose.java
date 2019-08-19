@@ -11,24 +11,24 @@ public class GildedRose {
         for (int i = 0; i< items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
                     && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (isItemQualityBiggerThan0(items[i])) {
+                if (isItemQualityBiggerThan0(items[i].quality)) {
                     if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
                         decrease1ItemQuality(i, 1);
                     }
                 }
             } else {
-                if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
+                if (isItemQqualitySmallerThan50(items[i].quality)) {
                     increaseItemQuality(i);
 
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (isItemSellInSmallerThan11(items[i].sellIn, 11)) {
-                            if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
+                        if (isItemSellInSmallerThan11(items[i].sellIn)) {
+                            if (isItemQqualitySmallerThan50(items[i].quality)) {
                                 increaseItemQuality(i);
                             }
                         }
 
-                        if (isItemSellInSmallerThan6(items[i].sellIn, 6)) {
-                            if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
+                        if (isItemSellInSmallerThan6(items[i].sellIn)) {
+                            if (isItemQqualitySmallerThan50(items[i].quality)) {
                                 increaseItemQuality(i);
                             }
                         }
@@ -40,10 +40,10 @@ public class GildedRose {
                 items[i].sellIn = items[i].sellIn - 1;
             }
 
-            if (isItemSellInSmallerThan0(items[i].sellIn, 0)) {
+            if (isItemSellInSmallerThan0(items[i].sellIn)) {
                 if (!items[i].name.equals("Aged Brie")) {
                     if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (isItemQualityBiggerThan0(items[i])) {
+                        if (isItemQualityBiggerThan0(items[i].quality)) {
                             if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
                                 decrease1ItemQuality(i, items[i].quality);
                             }
@@ -52,7 +52,7 @@ public class GildedRose {
                         decrease1ItemQuality(i, items[i].quality);
                     }
                 } else {
-                    if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
+                    if (isItemQqualitySmallerThan50(items[i].quality)) {
                         increaseItemQuality(i);
                     }
                 }
@@ -60,24 +60,24 @@ public class GildedRose {
         }
     }
 
-    private boolean isItemSellInSmallerThan11(int sellIn, int i2) {
-        return sellIn < i2;
+    private boolean isItemSellInSmallerThan11(int sellIn) {
+        return sellIn < 12;
     }
 
-    private boolean isItemSellInSmallerThan6(int sellIn, int i2) {
-        return sellIn < i2;
+    private boolean isItemSellInSmallerThan6(int sellIn) {
+        return sellIn < 6;
     }
 
-    private boolean isItemSellInSmallerThan0(int sellIn, int i2) {
-        return sellIn < i2;
+    private boolean isItemSellInSmallerThan0(int sellIn) {
+        return sellIn < 0;
     }
 
-    private boolean isItemQualityBiggerThan0(Item item) {
-        return item.quality > 0;
+    private boolean isItemQualityBiggerThan0(int quality) {
+        return quality > 0;
     }
 
-    private boolean isItemQqualitySmallerThan50(int quality, int i2) {
-        return quality < i2;
+    private boolean isItemQqualitySmallerThan50(int quality) {
+        return quality < 50;
     }
 
     private void increaseItemQuality(int i) {
