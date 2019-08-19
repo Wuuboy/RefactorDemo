@@ -27,7 +27,7 @@ public class GildedRose {
                             }
                         }
 
-                        if (items[i].sellIn < 6) {
+                        if (isItemSellInSmallerThan6(items[i].sellIn, 6)) {
                             if (isItemQqualitySmallerThan50(items[i].quality, 50)) {
                                 increaseItemQuality(i);
                             }
@@ -58,6 +58,10 @@ public class GildedRose {
                 }
             }
         }
+    }
+
+    private boolean isItemSellInSmallerThan6(int sellIn, int i2) {
+        return sellIn < i2;
     }
 
     private boolean isItemSellInSmallerThan0(int sellIn, int i2) {
