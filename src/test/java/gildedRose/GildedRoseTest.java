@@ -54,6 +54,14 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void should_return_quality_is_4_when_sellIn_smaller_than_0_item_name_not_equals_AgedBrie_and_Backstage_and_Sulfuras_and_quality_bigger_than_0() {
+        Item[] items = {new Item("Demi",-1,1)};
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+        Assert.assertEquals(0,items[0].getQuality());
+    }
+
+    @Test
     public void should_return_quality_is_4_when_sellIn_smaller_than_0_item_name_not_equals_AgedBrie_but_equals_Backstage() {
         Item[] items = {new Item("Backstage passes to a TAFKAL80ETC concert",-1,1)};
         GildedRose gildedRose = new GildedRose(items);
