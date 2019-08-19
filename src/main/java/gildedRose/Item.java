@@ -10,9 +10,6 @@ public class Item {
 
     protected UpdateItem updateItem;
 
-    public String getName() {
-        return name;
-    }
 
     public int getSellIn() {
         return sellIn;
@@ -26,15 +23,24 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
-        if (this.name == "Aged Brie") {
-            this.updateItem = new AgedBrieUpdateItem();
-        } else if (this.name == "Backstage passes to a TAFKAL80ETC concert") {
-            this.updateItem = new BackstageUpdateItem();
-        } else if (this.name == "Sulfuras, Hand of Ragnaros") {
-            this.updateItem = new SulfurasUpdateItem();
-        } else {
-            this.updateItem = new OtherUpdateItem();
+        createItemByItemName();
+    }
+
+    private void createItemByItemName() {
+        switch (this.name){
+            case "Aged Brie":
+                this.updateItem = new AgedBrieUpdateItem();
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+                this.updateItem = new BackstageUpdateItem();
+                break;
+            case "Sulfuras, Hand of Ragnaros":
+                this.updateItem = new SulfurasUpdateItem();
+                break;
+            default:
+                this.updateItem = new OtherUpdateItem();
         }
+
     }
 
     @Override
